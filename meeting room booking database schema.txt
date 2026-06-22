@@ -1,0 +1,77 @@
+# Database Schema
+
+```
++----------------+
+|   Employee     |
++----------------+
+| id (PK)        |
+| name           |
+| email          |
+| department     |
+| role           |
+| password       |
++----------------+
+        |
+        |
+        | 1
+        |
+        | *
++----------------+
+|    Booking     |
++----------------+
+| id (PK)        |
+| employee_id FK |
+| room_id FK     |
+| meeting_title  |
+| start_time     |
+| end_time       |
++----------------+
+        |
+        |
+        | *
+        |
+        | 1
++----------------+
+|     Room       |
++----------------+
+| id (PK)        |
+| room_name      |
+| location       |
+| capacity       |
++----------------+
+
+
+Booking
+    |
+    |
+    | 1
+    |
+    | *
++----------------+
+|  Participant   |
++----------------+
+| id (PK)        |
+| booking_id FK  |
+| employee_id FK |
++----------------+
+```
+
+## Relationships
+
+Employee:
+
+* One employee can create multiple bookings
+
+Room:
+
+* One room can have multiple bookings
+
+Booking:
+
+* Belongs to one employee
+* Belongs to one room
+* Can have multiple participants
+
+Participant:
+
+* Connects employees with bookings
